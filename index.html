@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Realsit.livre | Sua loja online</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      color: #222;
+    }
+    header {
+      background: #171717;
+      color: white;
+      padding: 22px 16px;
+      text-align: center;
+    }
+    header h1 { margin: 0; color: #ffcc00; }
+    header p { margin-bottom: 0; }
+    .search {
+      display: block;
+      width: 90%;
+      max-width: 600px;
+      margin: 20px auto;
+      padding: 14px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+    main {
+      max-width: 1100px;
+      margin: auto;
+      padding: 15px;
+    }
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+    }
+    .product {
+      background: white;
+      border-radius: 12px;
+      padding: 15px;
+      box-shadow: 0 2px 10px #00000012;
+    }
+    .product img {
+      width: 100%;
+      height: 190px;
+      object-fit: contain;
+    }
+    .product h3 { min-height: 42px; }
+    .price {
+      font-size: 21px;
+      font-weight: bold;
+      color: #16823b;
+    }
+    .buy {
+      display: block;
+      background: #ffcc00;
+      color: #171717;
+      padding: 13px;
+      text-align: center;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 8px;
+    }
+    footer {
+      text-align: center;
+      padding: 25px;
+      background: #171717;
+      color: white;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Realsit.livre</h1>
+  <p>Ofertas, novidades e produtos para você!</p>
+</header>
+
+<input class="search" type="search"
+  placeholder="Pesquisar produtos..."
+  oninput="buscar(this.value)">
+
+<main>
+  <h2>Produtos em destaque</h2>
+  <div class="products" id="products">
+
+    <article class="product">
+      <img src="https://placehold.co/400x300?text=Produto"
+        alt="Produto de exemplo">
+      <h3>Produto de exemplo</h3>
+      <p class="price">R$ 99,90</p>
+      <a class="buy" href="https://www.mercadolivre.com.br/"
+        target="_blank" rel="noopener">Comprar</a>
+    </article>
+
+  </div>
+</main>
+
+<footer>
+  <p>Realsit.livre © 2026</p>
+  <p>Os produtos são vendidos pelos respectivos fornecedores.</p>
+</footer>
+
+<script>
+function buscar(termo) {
+  document.querySelectorAll('.product').forEach(produto => {
+    produto.style.display =
+      produto.innerText.toLowerCase().includes(termo.toLowerCase())
+      ? '' : 'none';
+  });
+}
+</script>
+
+</body>
+</html>
