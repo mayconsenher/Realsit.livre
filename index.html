@@ -1,122 +1,308 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Realsit.livre | Sua loja online</title>
-  <style>
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f5f5f5;
-      color: #222;
-    }
-    header {
-      background: #171717;
-      color: white;
-      padding: 22px 16px;
-      text-align: center;
-    }
-    header h1 { margin: 0; color: #ffcc00; }
-    header p { margin-bottom: 0; }
-    .search {
-      display: block;
-      width: 90%;
-      max-width: 600px;
-      margin: 20px auto;
-      padding: 14px;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      font-size: 16px;
-    }
-    main {
-      max-width: 1100px;
-      margin: auto;
-      padding: 15px;
-    }
-    .products {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 18px;
-    }
-    .product {
-      background: white;
-      border-radius: 12px;
-      padding: 15px;
-      box-shadow: 0 2px 10px #00000012;
-    }
-    .product img {
-      width: 100%;
-      height: 190px;
-      object-fit: contain;
-    }
-    .product h3 { min-height: 42px; }
-    .price {
-      font-size: 21px;
-      font-weight: bold;
-      color: #16823b;
-    }
-    .buy {
-      display: block;
-      background: #ffcc00;
-      color: #171717;
-      padding: 13px;
-      text-align: center;
-      text-decoration: none;
-      font-weight: bold;
-      border-radius: 8px;
-    }
-    footer {
-      text-align: center;
-      padding: 25px;
-      background: #171717;
-      color: white;
-      margin-top: 30px;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Realsit.livre | Sua loja online</title>
+
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f5f7;
+  color: #202124;
+}
+
+header {
+  background: #111827;
+  color: white;
+  padding: 22px 6%;
+}
+
+.logo {
+  font-size: 28px;
+  font-weight: bold;
+  color: #ffcc00;
+}
+
+.logo span {
+  color: white;
+}
+
+.slogan {
+  font-size: 13px;
+  margin-top: 5px;
+  color: #ccc;
+}
+
+.search {
+  margin-top: 20px;
+  display: flex;
+  max-width: 650px;
+}
+
+.search input {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 7px 0 0 7px;
+  font-size: 15px;
+}
+
+.search button {
+  background: #ffcc00;
+  border: none;
+  padding: 14px 20px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 0 7px 7px 0;
+}
+
+.banner {
+  margin: 25px auto;
+  max-width: 1150px;
+  padding: 55px 25px;
+  background: linear-gradient(120deg,#172033,#344d70);
+  color: white;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.banner h1 {
+  font-size: 32px;
+  margin-bottom: 12px;
+}
+
+.banner p {
+  color: #e0e5ee;
+}
+
+main {
+  max-width: 1150px;
+  margin: auto;
+  padding: 15px;
+}
+
+h2 {
+  margin: 25px 0 18px;
+}
+
+.categories {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 15px;
+}
+
+.category {
+  background: white;
+  padding: 25px 10px;
+  border-radius: 10px;
+  text-align: center;
+  font-weight: bold;
+  cursor: pointer;
+  border: 1px solid #eee;
+}
+
+.category:hover,
+.category.active {
+  background: #ffcc00;
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(210px,1fr));
+  gap: 18px;
+  margin-bottom: 40px;
+}
+
+.product {
+  background: white;
+  border-radius: 10px;
+  padding: 15px;
+  text-align: center;
+}
+
+.product img {
+  width: 100%;
+  height: 170px;
+  object-fit: contain;
+}
+
+.product h3 {
+  font-size: 16px;
+  margin: 12px 0;
+}
+
+.price {
+  font-size: 21px;
+  font-weight: bold;
+  color: #16834a;
+  margin: 12px 0;
+}
+
+.buy {
+  display: block;
+  padding: 13px;
+  background: #ffcc00;
+  color: #111;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 7px;
+}
+
+.empty {
+  grid-column: 1/-1;
+  background: white;
+  padding: 35px;
+  text-align: center;
+  border-radius: 10px;
+  color: #666;
+}
+
+footer {
+  background: #111827;
+  color: white;
+  text-align: center;
+  padding: 30px 15px;
+  font-size: 13px;
+}
+
+@media(max-width:600px) {
+  .banner h1 {
+    font-size: 25px;
+  }
+  .categories {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
 </head>
+
 <body>
 
 <header>
-  <h1>Realsit.livre</h1>
-  <p>Ofertas, novidades e produtos para você!</p>
+  <div class="logo">Realsit<span>.livre</span></div>
+  <div class="slogan">Sua loja de ofertas e oportunidades</div>
+
+  <div class="search">
+    <input id="search" type="search"
+      placeholder="O que você está procurando?">
+    <button onclick="render()">BUSCAR</button>
+  </div>
 </header>
 
-<input class="search" type="search"
-  placeholder="Pesquisar produtos..."
-  oninput="buscar(this.value)">
+<section class="banner">
+  <h1>Encontre seus melhores achadinhos!</h1>
+  <p>Produtos selecionados, novidades e ofertas em um só lugar.</p>
+</section>
 
 <main>
-  <h2>Produtos em destaque</h2>
-  <div class="products" id="products">
 
-    <article class="product">
-      <img src="https://placehold.co/400x300?text=Produto"
-        alt="Produto de exemplo">
-      <h3>Produto de exemplo</h3>
-      <p class="price">R$ 99,90</p>
-      <a class="buy" href="https://www.mercadolivre.com.br/"
-        target="_blank" rel="noopener">Comprar</a>
-    </article>
+<h2>Categorias</h2>
 
+<div class="categories">
+  <div class="category active" onclick="filterCategory('Todos',this)">
+    📦 Todos
   </div>
+  <div class="category" onclick="filterCategory('Eletrônicos',this)">
+    📱 Eletrônicos
+  </div>
+  <div class="category" onclick="filterCategory('Casa',this)">
+    🏠 Casa
+  </div>
+  <div class="category" onclick="filterCategory('Cuidados pessoais',this)">
+    ✨ Cuidados pessoais
+  </div>
+  <div class="category" onclick="filterCategory('Acessórios',this)">
+    🕶️ Acessórios
+  </div>
+  <div class="category" onclick="filterCategory('Ofertas',this)">
+    🔥 Ofertas
+  </div>
+</div>
+
+<h2>Produtos em destaque</h2>
+
+<div class="products" id="products"></div>
+
 </main>
 
 <footer>
-  <p>Realsit.livre © 2026</p>
-  <p>Os produtos são vendidos pelos respectivos fornecedores.</p>
+  <h3>Realsit.livre</h3>
+  <p>Ofertas e produtos selecionados para você.</p>
+  <p>© 2026 Realsit.livre</p>
+  <p>Produtos vendidos por seus respectivos fornecedores.</p>
 </footer>
 
 <script>
-function buscar(termo) {
-  document.querySelectorAll('.product').forEach(produto => {
-    produto.style.display =
-      produto.innerText.toLowerCase().includes(termo.toLowerCase())
-      ? '' : 'none';
+
+// CADASTRE SEUS PRODUTOS AQUI NA PRÓXIMA ETAPA
+const produtos = [];
+
+let categoriaAtual = "Todos";
+
+function filterCategory(categoria, elemento) {
+  categoriaAtual = categoria;
+
+  document.querySelectorAll(".category").forEach(item => {
+    item.classList.remove("active");
   });
+
+  elemento.classList.add("active");
+  render();
 }
+
+function render() {
+  const busca = document.getElementById("search")
+    .value.toLowerCase();
+
+  const lista = produtos.filter(p => {
+    const correspondeCategoria =
+      categoriaAtual === "Todos" ||
+      p.categoria === categoriaAtual ||
+      (categoriaAtual === "Ofertas" && p.promocao);
+
+    return correspondeCategoria &&
+      p.nome.toLowerCase().includes(busca);
+  });
+
+  const area = document.getElementById("products");
+
+  if (lista.length === 0) {
+    area.innerHTML = `
+      <div class="empty">
+        <h3>Em breve, novidades!</h3>
+        <p>Nossos produtos estarão disponíveis aqui.</p>
+      </div>`;
+    return;
+  }
+
+  area.innerHTML = lista.map(p => `
+    <div class="product">
+      <img src="${p.imagem}" alt="${p.nome}">
+      <h3>${p.nome}</h3>
+      <div class="price">
+        R$ ${Number(p.preco).toFixed(2).replace(".",",")}
+      </div>
+      <a class="buy" href="${p.link}"
+         target="_blank" rel="noopener sponsored">
+         COMPRAR
+      </a>
+    </div>
+  `).join("");
+}
+
+document.getElementById("search")
+  .addEventListener("input",render);
+
+render();
+
 </script>
 
 </body>
-</html>
+</html>  
